@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +16,8 @@ public class Player : MonoBehaviour
     double max_x = 9.63;
     double min_x = -1.3;
     public GameObject gameObject;
+    public TMP_Text Coin_text;
+    [SerializeField] private int coins = 0;
 
     void Start()
     {
@@ -45,14 +50,26 @@ public class Player : MonoBehaviour
         }
         if (gameObject.transform.position.x > max_x)
         {
-            gameObject.transform.position = new Vector3(5, 2, -15);
+            SceneManager.LoadScene(0);
         }
         else if (gameObject.transform.position.x < min_x)
         {
-            gameObject.transform.position = new Vector3(5, 2, -15);
+            SceneManager.LoadScene(0);
         }
 
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "die")
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+    public void AddCoin()
+    {
+        coins++;
+        Coin_text.text = coins.ToString();
     }
 
 }
