@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - die
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
     }
@@ -63,6 +62,7 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.tag == "die")
         {
+            //StartCoroutine(GetComponent<SpikeRemove>().WaitForSeconds());
             SceneManager.LoadScene(0);
         }
     }
@@ -70,6 +70,15 @@ public class Player : MonoBehaviour
     {
         coins++;
         Coin_text.text = coins.ToString();
+    }
+    private void OnTriggerStay(Collider collider)
+    {
+        if (collider.tag == "Finish" && coins == 5)
+        {
+            //StartCoroutine(GetComponent<SpikeRemove>().WaitForSeconds());
+            SceneManager.LoadScene(1);
+        }
+
     }
 
 }
