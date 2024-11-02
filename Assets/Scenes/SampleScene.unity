@@ -1684,7 +1684,6 @@ GameObject:
   - component: {fileID: 697276314}
   - component: {fileID: 697276313}
   - component: {fileID: 697276312}
-  - component: {fileID: 697276316}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Ground
@@ -1778,20 +1777,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &697276316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697276311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0a0dc904e8c504fa9c954c4be8dbcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ground: {fileID: 697276315}
-  Spike: {fileID: 1032900549110665039, guid: bfd2b0742f978a84c8b9201d5bc652b8, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4197,10 +4182,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6701438274351768952, guid: bfd2b0742f978a84c8b9201d5bc652b8, type: 3}
   distanceHeight: 6
-  distanceZ: 2
   spawnDelay: 2
   spawnRotation: {x: 90, y: 0, z: 0}
   GameObject: {fileID: 697276315}
+  minZ: -2
+  maxZ: 4
+  minX: -4
+  maxX: 3
 --- !u!1001 &1557141697
 PrefabInstance:
   m_ObjectHideFlags: 0
