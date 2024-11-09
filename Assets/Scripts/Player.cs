@@ -49,11 +49,11 @@ public class Player : MonoBehaviour
         }
         if (gameObject.transform.position.x > max_x)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         else if (gameObject.transform.position.x < min_x)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
 
     }
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         if (collision.collider.tag == "die")
         {
             //StartCoroutine(GetComponent<SpikeRemove>().WaitForSeconds());
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
     public void AddCoin()
@@ -71,12 +71,17 @@ public class Player : MonoBehaviour
         coins++;
         Coin_text.text = coins.ToString();
     }
+    public void StartGame()
+    {
+ 
+        SceneManager.LoadScene(1);
+    }
     private void OnTriggerStay(Collider collider)
     {
         if (collider.tag == "Finish" && coins == 5)
         {
             //StartCoroutine(GetComponent<SpikeRemove>().WaitForSeconds());
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
 
     }
